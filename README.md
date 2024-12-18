@@ -25,12 +25,34 @@ You can test your connection by reading out the values in PARTNUM = 0xF0 and VER
 PATABLE controls power and is a 8-bytes table. Writen to in burst mode. In singlebyte mode only the first byte can be reached.
 
 
-So the steps to follow for sending or recieving:
-1 - init your connections
-2 - reset CC1101 chip (send value 0x00 to 0x30 (=SRES))
-3 - calculate en set frequency
-4 - write PATABLE
-5 - flush FIFO's
-6 - fill the registers with the correct values (which values you can determine with smartRF studio).
-7 - send or receive data
- 
+So the steps to follow for sending or recieving:  
+1 - init your connections  
+2 - reset CC1101 chip (send value 0x00 to 0x30 (=SRES))  
+3 - calculate en set frequency  
+4 - write PATABLE  
+5 - flush FIFO's  
+6 - fill the registers with the correct values (which values you can determine with smartRF studio)  
+7 - send or receive data  
+
+# Info from DN022
+In application note DN022 are recommondations for ASK/OOK.  
+AGCCTRL2 = 0x03 to 0x07  
+AGCCTRL1 = 0x00  
+AGCCTRL0 = 0x91 or 0x92  
+
+
+# Registers
+Strobe Registers/commands:  
+    SRES = 0x30  
+    SFSTXON = 0x31  
+    SXOFF = 0x32  
+    SCAL = 0x33  
+    SRX = 0x34  
+    STX = 0x35  
+    SIDLE = 0x36  
+    SWOR = 0x38  
+    SPWD = 0x39  
+    SFRX = 0x3A  
+    SFTX = 0x3B  
+    SWORRST = 0x3C  
+    SNOP = 0x3D  
